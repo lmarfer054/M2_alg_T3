@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260502094819GSVKLR">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.2. Cálculo del rango de una matriz por los menores | Álgebra lineal</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Curso 2º - Enseñanza Bachillerato
+Nombre asignatura/materia: Matemáticas II">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../idevices/form/form.js"></script><link rel="stylesheet" href="../idevices/form/form.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><script src="../theme/z-custom-effects.js"> </script><link rel="stylesheet" href="../theme/colores.css"><link rel="stylesheet" href="../theme/comic.css"><link rel="stylesheet" href="../theme/ejercicio.css"><link rel="stylesheet" href="../theme/libreta.css"><link rel="stylesheet" href="../theme/navegacion.css"><link rel="stylesheet" href="../theme/nota-azul.css"><link rel="stylesheet" href="../theme/retroalimentacion.css"><link rel="stylesheet" href="../theme/style.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260502094819GSVKLR" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Álgebra lineal: Aplicaciones de las matrices. Ecuaciones matriciales</a>
+</li>
+<li class="current-page-parent"> <a href="../html/1-rango-de-una-matriz.html" class="daddy">1. Rango de una matriz</a>
+<ul class="other-section">
+<li> <a href="../html/11-definicion-de-rango-de-una-matriz.html" class="no-ch">1.1. Definición de rango de una matriz</a>
+</li>
+<li class="active"> <a href="../html/12-calculo-del-rango-de-una-matriz-por-los-menores.html" class="active no-ch">1.2. Cálculo del rango de una matriz por los menores</a>
+</li>
+<li> <a href="../html/13-calculo-del-rango-de-una-matriz-por-el-metodo-d.html" class="no-ch">1.3. Cálculo del rango de una matriz por el método de Gauss</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/2-inversa-de-una-matriz.html" class="daddy">2. Inversa de una matriz</a>
+<ul class="other-section">
+<li> <a href="../html/21-inverso-de-un-numero.html" class="no-ch">2.1. Inverso de un número</a>
+</li>
+<li> <a href="../html/22-definicion-de-inversa-de-una-matriz.html" class="no-ch">2.2. Definición de inversa de una matriz</a>
+</li>
+<li> <a href="../html/23-calculo-de-la-inversa-de-una-matriz.html" class="no-ch">2.3. Cálculo de la inversa de una matriz</a>
+</li>
+<li> <a href="../html/24-calculo-de-la-inversa-de-una-matriz-por-el-meto.html" class="no-ch">2.4. Cálculo de la inversa de una matriz por el método de Gauss</a>
+</li>
+</ul>
+</li>
+<li> <a href="../html/3-ecuaciones-matriciales.html" class="no-ch">3. Ecuaciones matriciales</a>
+</li>
+<li> <a href="../html/4-especial-selectividad.html" class="no-ch">4. Especial selectividad</a>
+</li>
+<li> <a href="../html/resumen.html" class="no-ch">Resumen</a>
+</li>
+</ul>
+</nav><main id="20260502094819GSVKLR" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Álgebra lineal</p>
+<p class="package-subtitle">Aplicaciones de las matrices. Ecuaciones matriciales.</p></div>
+<div class="page-header"><h1 class="page-title">1.2. Cálculo del rango de una matriz por los menores</h1></div>
+</header><div id="page-content-20260502094819GSVKLR" class="page-content">
+<article id="20260502094819UAMHRM" class="box no-header sin-nada">
+<header class="box-head no-icon">
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mocvbkmm-xjv4q3vad" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mocvbkmm-xjv4q3vad&quot;}">
+<div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><p style="text-align: justify;">Vamos a comenzar ahora a utilizar una técnica para calcular el rango de una matriz. Vamos a basarnos en algo que ya conoces: los determinantes.</p>
+<p style="text-align: justify;">Recuerda que para calcular el determinante de una matriz utilizábamos algunos <b><i>menores</i></b> que componían la misma. Ahora vamos a hacer algo parecido. No debes perder de vista que, a la hora de calcular el rango de una matriz, debemos indicar el número de filas y el número de columnas (el que sea menor de los dos) que sean linealmente independientes.</p>
+<p style="text-align: justify;">Sabemos que si el determinante de una matriz es cero, sus filas son linealmente dependientes y sus columnas son linealmente dependientes, por lo que vamos a intentar buscar la submatriz de mayor orden cuyo determinante sea distinto de cero y esas filas y columnas que contenga serán linealmente independientes.</p><p class="clearfix"></p></div>
+            </div></div></div>
+</div>
+</div>
+</article><article id="20260502094819DVCHEG" class="box caja-azul">
+<header class="box-head">
+<div class="box-icon exe-icon">
+<img src="../theme/icons/icon_ejercicioresuelto.png" alt="" style="display:block;object-fit:contain;">
+</div>
+<h1 class="box-title">Procedimiento</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260425133833181LG7" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260425133833181LG7&quot;}">
+<div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
+<p>El rango de una matriz es el orden del <strong>mayor menor no nulo</strong>.&nbsp;</p>
+<hr style="border: 0; height: 1px; background: #ddd; margin: 20px 0;">
+<h5 style="color: #2980b9;">1. Determinar el Rango Máximo</h5>
+<p>Dada una matriz \( A \) de dimensiones \( m \times n \), el rango máximo posible es:</p>
+<p style="text-align: center;">\( Rg(A) \leq \min(m, n) \)</p>
+<h5 style="color: #2980b9;">2. Localizar un Menor de Orden 1</h5>
+<p>Busca cualquier elemento \( a_{ij} \neq 0 \). Si existe, entonces:</p>
+<p style="text-align: center;">\( Rg(A) \geq 1 \)</p>
+<h5 style="color: #2980b9;">3. Orlar el Menor (Aumentar el Orden)</h5>
+<p>Si hemos encontrado un menor de orden \( k \) no nulo, buscamos un menor de orden \( k+1 \) que lo contenga. Por ejemplo, si tenemos un menor de orden 2:</p>
+<p style="text-align: center;">\( M_2 = \begin{vmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{vmatrix} \neq 0 \implies Rg(A) \geq 2 \)</p>
+<h5 style="color: #2980b9;">4. Condición de Parada</h5>
+<ul>
+<li>Si encontramos un menor de orden \( k \neq 0 \) y todos los menores de orden \( k+1 \) son nulos, el <strong>rango es \( k \)</strong>.</li>
+<li>Si el determinante de la submatriz más grande posible es distinto de cero:
+<p style="text-align: center;">\( \det(A_{k \times k}) \neq 0 \implies Rg(A) = k \)</p>
+</li>
+</ul>
+</div><p class="clearfix"></p></div>
+            </div></div></div>
+</div>
+</div>
+</article><article id="20260502094819DILIJP" class="box caja-roja">
+<header class="box-head">
+<div class="box-icon exe-icon">
+<img src="../theme/icons/bidio.gif" alt="" style="display:block;object-fit:contain;">
+</div>
+<h1 class="box-title">Ejemplo</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mocvbkmm-r5rw06f0i" class="idevice_node text caja-roja" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mocvbkmm-r5rw06f0i&quot;}">
+<div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><p>En el siguiente vídeo puedes ver un ejemplo de como aplicar este método para hallar el rango de una matriz: <a href="https://www.youtube.com/embed/xklVUv8-cZI" id="link_0"><img src="../content/resources/idevice-mocvbkmm-r5rw06f0i/yutube.png" width="55" height="57" alt=""></a></p><p class="clearfix"></p></div>
+            </div></div></div>
+</div>
+</div>
+</article><article id="20260502094819EQQHUJ" class="box nota-azul">
+<header class="box-head">
+<div class="box-icon exe-icon">
+<img src="../theme/icons/activity.png" alt="" style="display:block;object-fit:contain;">
+</div>
+<h1 class="box-title">Importante</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mocvbkmm-wxkm506p4" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mocvbkmm-wxkm506p4&quot;}">
+<div class="exe-text-template"><div class="textIdeviceContent">
+            <div class="exe-text-activity">
+                <div><p style="text-align: justify;">Con esta forma de cálculo que hemos visto en el vídeo anterior, no solamente hallamos el rango de la matriz, sino que también comprobamos que podemos definirlo como el orden más grande de la submatriz cuadrada con determinante distinto de cero, es decir, como el mayor orden de los menores distintos de cero.</p><p class="clearfix"></p></div>
+            </div></div></div>
+</div>
+</div>
+</article><article id="20260502094819HNZCHQ" class="box caja-morada boton-morado">
+<header class="box-head">
+<div class="box-icon exe-icon">
+<img src="../theme/icons/icon_completa.png" alt="" style="display:block;object-fit:contain;">
+</div>
+<h1 class="box-title">Completa</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mocvbkmm-mtcsjfcj7" class="idevice_node form" data-idevice-path="../idevices/form/" data-idevice-type="form" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mocvbkmm-mtcsjfcj7&quot;,&quot;evaluation&quot;:false,&quot;evaluationID&quot;:&quot;&quot;,&quot;repeatActivity&quot;:true,&quot;isScorm&quot;:0,&quot;textButtonScorm&quot;:&quot;Guardar la puntuación&quot;,&quot;weighted&quot;:100,&quot;msgs&quot;:{&quot;msgScoreScorm&quot;:&quot;La puntuación no se puede guardar porque esta página no forma parte  de un paquete SCORM.&quot;,&quot;msgYouScore&quot;:&quot;Tu puntuación es&quot;,&quot;msgScore&quot;:&quot;Puntuación&quot;,&quot;msgWeight&quot;:&quot;Peso&quot;,&quot;msgYouLastScore&quot;:&quot;La última puntuación guardada es&quot;,&quot;msgOnlySaveScore&quot;:&quot;¡Solo puede guardar la puntuación una vez!&quot;,&quot;msgOnlySave&quot;:&quot;Solo puede guardar una vez&quot;,&quot;msgOnlySaveAuto&quot;:&quot;Su puntuación se guardará después de cada pregunta. Solo puede jugar una vez.&quot;,&quot;msgSaveAuto&quot;:&quot;Su puntuación se guardará automáticamente después de cada pregunta.&quot;,&quot;msgSeveralScore&quot;:&quot;Puede guardar la puntuación tantas veces como quiera&quot;,&quot;msgPlaySeveralTimes&quot;:&quot;Puede realizar esta actividad cuantas veces quiera&quot;,&quot;msgActityComply&quot;:&quot;Ya ha realizado esta actividad.&quot;,&quot;msgUncompletedActivity&quot;:&quot;Actividad no completada&quot;,&quot;msgSuccessfulActivity&quot;:&quot;Actividad superada. Puntuación: %s&quot;,&quot;msgUnsuccessfulActivity&quot;:&quot;Actividad no superada. Puntuación: %s&quot;,&quot;msgTypeGame&quot;:&quot;Formulario&quot;,&quot;msgStartGame&quot;:&quot;Pulse aquí para empezar&quot;,&quot;msgTime&quot;:&quot;Tiempo por pregunta&quot;,&quot;msgSaveScore&quot;:&quot;Guardar la puntuación&quot;,&quot;msgResult&quot;:&quot;Resultado&quot;,&quot;msgCheck&quot;:&quot;Comprobar&quot;,&quot;msgReset&quot;:&quot;Reiniciar&quot;,&quot;msgShowAnswers&quot;:&quot;Mostrar respuestas&quot;,&quot;msgTestResultPass&quot;:&quot;¡Felicidades! Has pasado la prueba&quot;,&quot;msgTestResultNotPass&quot;:&quot;Lo siento. Has fallado la prueba&quot;,&quot;msgTrueFalseHelp&quot;:&quot;Di si la afirmación es verdadera o falsa&quot;,&quot;msgDropdownHelp&quot;:&quot;Elige la respuesta correcta entre las opciones propuestas&quot;,&quot;msgFillHelp&quot;:&quot;Rellena los espacios en blanco con la palabra apropiada&quot;,&quot;msgSingleSelectionHelp&quot;:&quot;Opción múltiple con solo una respuesta correcta&quot;,&quot;msgMultipleSelectionHelp&quot;:&quot;Opción múltiple con varias respuestas correctas&quot;,&quot;msgPlayStart&quot;:&quot;Pulse aquí para empezar&quot;,&quot;msgTrue&quot;:&quot;Verdadero&quot;,&quot;msgFalse&quot;:&quot;Falso&quot;,&quot;msgNext&quot;:&quot;Siguiente&quot;,&quot;msgPrevious&quot;:&quot;Anterior&quot;,&quot;msgSuggestion&quot;:&quot;Sugerencia&quot;},&quot;id&quot;:&quot;idevice-mocvbkmm-mtcsjfcj7&quot;,&quot;questionsRandom&quot;:false,&quot;percentageQuestions&quot;:&quot;100&quot;,&quot;time&quot;:&quot;0&quot;,&quot;eXeFormInstructions&quot;:&quot;&lt;p&gt;Seguimos adelante ahora con el supermercado de Raimundo. En la gestión que está realizando del mismo hemos seleccionado cuatro tablas relacionadas con la distribución de lacteos por distintos supermercados. En este caso solamente deseamos determinar el rango de esas matrices para que posteriormente nos aparezcan unos cálculos más simplificados a la hora de operar con ellas. Las matrices que hemos seleccionado son:&lt;/p&gt;\n&lt;p&gt;\\(A = \\begin{pmatrix} &lt;br /&gt;4 &amp; -7 \\\\ &lt;br /&gt;-6 &amp; 9 &lt;br /&gt;\\end{pmatrix} \\) \\(B = \\begin{pmatrix} &lt;br /&gt;4 &amp; -7 &amp; -3 &amp; 1 \\\\ &lt;br /&gt;0 &amp; 0 &amp; 0 &amp; 0 \\\\ &lt;br /&gt;7 &amp; 6 &amp; 13 &amp; 20 \\\\ &lt;br /&gt;0 &amp; 1 &amp; 1 &amp; 1 &lt;br /&gt;\\end{pmatrix} \\) \\(C = \\begin{pmatrix} &lt;br /&gt;1 &amp; 1 \\\\ &lt;br /&gt;7 &amp; 3 \\\\ &lt;br /&gt;5 &amp; 6 &lt;br /&gt;\\end{pmatrix} \\) \\(D = \\begin{pmatrix} &lt;br /&gt;-4 &amp; 1 &amp; 3 &amp; -1 \\\\ &lt;br /&gt;-2 &amp; -4 &amp; -5 &amp; -7 \\\\ &lt;br /&gt;4 &amp; 4 &amp; 0 &amp; 4 &lt;br /&gt;\\end{pmatrix}\\)   &lt;/p&gt;&quot;,&quot;questionsData&quot;:[{&quot;id&quot;:&quot;1777122683048-K46LT&quot;,&quot;activityType&quot;:&quot;fill&quot;,&quot;baseText&quot;:&quot;&lt;p&gt;Con las anteriores matrices sabemos que el rango de la matriz \\(A\\) es &lt;u&gt;2&lt;/u&gt; , el rango de la matriz \\(B\\) es &lt;u&gt;2&lt;/u&gt; , el rango de la matriz \\(C\\) es &lt;u&gt;2&lt;/u&gt; y el rango de la matriz \\(D\\) es &lt;u&gt;3&lt;/u&gt;&lt;/p&gt;&quot;,&quot;feedbackRight&quot;:&quot;&quot;,&quot;feedbackWrong&quot;:&quot;&quot;,&quot;suggestion&quot;:&quot;&quot;,&quot;wrongAnswersValue&quot;:&quot;&quot;,&quot;selectionType&quot;:&quot;single&quot;,&quot;answers&quot;:[],&quot;answer&quot;:&quot;1&quot;,&quot;capitalization&quot;:false,&quot;strict&quot;:false,&quot;order&quot;:0,&quot;customScore&quot;:1,&quot;time&quot;:0}],&quot;passRate&quot;:5,&quot;addBtnAnswers&quot;:true,&quot;eXeIdeviceTextAfter&quot;:&quot;&quot;,&quot;showSlider&quot;:false}" data-idevice-template="form.html">
+<div class="exe-form-container"><div class="game-evaluation-ids js-hidden" data-id="idevice-mocvbkmm-mtcsjfcj7" data-evaluationb="false" data-evaluationid=""></div>
+            <div id="frmMainContainer-idevice-mocvbkmm-mtcsjfcj7" class="form-IDevice" data-id="idevice-mocvbkmm-mtcsjfcj7">
+                <div class="form-Data js-hidden">{}</div>
+                <div class="form-instructions"><p>Seguimos adelante ahora con el supermercado de Raimundo. En la gestión que está realizando del mismo hemos seleccionado cuatro tablas relacionadas con la distribución de lacteos por distintos supermercados. En este caso solamente deseamos determinar el rango de esas matrices para que posteriormente nos aparezcan unos cálculos más simplificados a la hora de operar con ellas. Las matrices que hemos seleccionado son:</p>
+<p>\(A = \begin{pmatrix} <br />4 & -7 \\ <br />-6 & 9 <br />\end{pmatrix} \) \(B = \begin{pmatrix} <br />4 & -7 & -3 & 1 \\ <br />0 & 0 & 0 & 0 \\ <br />7 & 6 & 13 & 20 \\ <br />0 & 1 & 1 & 1 <br />\end{pmatrix} \) \(C = \begin{pmatrix} <br />1 & 1 \\ <br />7 & 3 \\ <br />5 & 6 <br />\end{pmatrix} \) \(D = \begin{pmatrix} <br />-4 & 1 & 3 & -1 \\ <br />-2 & -4 & -5 & -7 \\ <br />4 & 4 & 0 & 4 <br />\end{pmatrix}\)   </p></div>
+                <div class="FRMP-GameScoreBoard" style="display:none;">
+                    <div>
+                        <strong><span class="sr-av">Tiempo por pregunta:</span></strong>
+                        <span id="frmPTime-idevice-mocvbkmm-mtcsjfcj7">00:00</span>
+                    </div>
+                </div>
+                <div class="FRMP-StartGame" id="frmStartGameDiv-idevice-mocvbkmm-mtcsjfcj7" style="display:none;">
+                      <button  id="frmStartGame-idevice-mocvbkmm-mtcsjfcj7" type="button" class="btn btn-primary">Pulse aquí para empezar</button>
+                </div>
+                <div class="form-body" id="frmBody-idevice-mocvbkmm-mtcsjfcj7" style="display:block;">
+                    <div class="FRMP-Questions">
+                        <div id="form-questions-idevice-mocvbkmm-mtcsjfcj7" > </div>
+                        <div id="frmCover-idevice-mocvbkmm-mtcsjfcj7" class="FRMP-Cover"> </div>
+                    </div>
+                    <div id="resultsContainer-idevice-mocvbkmm-mtcsjfcj7" class="form-results-container inline">
+                        <div id="form-score-idevice-mocvbkmm-mtcsjfcj7" class="score-text">Puntuación.</div>
+                        <div id="form-result-test-idevice-mocvbkmm-mtcsjfcj7" class="score-text phrase-score"></div>
+                    </div>
+                    <div class="form-buttons-container inline">
+                        <input id="form-button-check-idevice-mocvbkmm-mtcsjfcj7" class="btn btn-primary" type="button" value="Comprobar"
+                            data-id="idevice-mocvbkmm-mtcsjfcj7" data-pass-rate="" />
+                        <input id="form-button-reset-idevice-mocvbkmm-mtcsjfcj7" type="button" value="Reiniciar"
+                            data-id="idevice-mocvbkmm-mtcsjfcj7" class="btn btn-primary"  style="display:none" />
+                        <input id="form-button-show-answers-idevice-mocvbkmm-mtcsjfcj7" class="btn btn-primary" type="button" value="Mostrar respuestas"
+                            data-id="idevice-mocvbkmm-mtcsjfcj7" style="display: " />
+
+                    </div>
+                </div>
+                <div class="Games-BottonContainer">
+                    <div class="Games-GetScore">
+                        <input id="frmPSendScore-idevice-mocvbkmm-mtcsjfcj7" type="button" value="Guardar la puntuación" class="feedbackbutton Games-SendScore" style="display:none"/> <span class="Games-RepeatActivity"></span>
+                    </div>
+                </div>
+                <div class="form-instructions"></div>
+            </div>
+            <div class="questionsMedia" style="display:none"></div>
+            </div>
+</div>
+</div>
+</article><article id="block-mv9jtrfv-lbckd9o9u" class="box caja-naranja">
+<header class="box-head">
+<div class="box-icon exe-icon">
+<img src="../theme/icons/icon_sabermas.png" alt="" style="display:block;object-fit:contain;">
+</div>
+<h1 class="box-title">&quot;Orlar&quot; un Menor</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mv9jtrfv-o0g1tvott" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mv9jtrfv-o0g1tvott&quot;}">
+<div class="exe-text-template">
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
+<p>En el contexto del cálculo del rango de una matriz, <strong>orlar</strong> significa literalmente "poner un borde" o añadir una corona alrededor de un menor que ya sabemos que es distinto de cero.</p>
+<div style="background-color: #fcf8e3; border-left: 5px solid #f0ad4e; padding: 12px; margin: 15px 0;"><strong>💡 Definición sencilla:</strong> Si tienes un menor de orden \( k \) que es distinto de cero, lo <strong>orlas</strong> cuando le añades una fila y una columna adicionales de la matriz para transformarlo en un nuevo menor de orden \( k+1 \).</div>
+<h3 style="color: #d35400;">¿Cuál es su gran utilidad?</h3>
+<p style="text-align: justify;">La principal ventaja del método de orlar (asociado al Teorema de Frobenius) es la <strong>eficiencia eufemística del tiempo</strong>. En lugar de calcular a ciegas todos los determinantes posibles de una matriz, este método te permite:</p>
+<ul>
+<li style="text-align: justify;"><strong>Reducir cálculos:</strong> No necesitas calcular todos los menores de orden \( k+1 \). Solo debes calcular aquellos que "contienen" (orlan) al menor no nulo que ya habías descubierto.</li>
+<li style="text-align: justify;"><strong>Fijar filas/columnas:</strong> Las filas y columnas que formaban el menor no nulo se quedan "congeladas". Las nuevas submatrices solo se construyen combinando las filas y columnas restantes.</li>
+<li style="text-align: justify;"><strong>Garantía de parada:</strong> Si al orlar un menor de todas las formas posibles con las filas y columnas restantes, todos los determinantes resultantes son cero, puedes asegurar inmediatamente que el rango de la matriz es exactamente el orden del menor original. ¡No hace falta calcular nada más!</li>
+</ul>
+<h3 style="color: #d35400;">Visualización geométrica del proceso</h3>
+<p>Imagina que en una matriz de \( 3 \times 4 \) has encontrado que el menor superior izquierdo de \( 2 \times 2 \) es distinto de cero:</p>
+<p style="text-align: center;">\( M_2 = \begin{vmatrix} \color{blue}{a_{11}} & \color{blue}{a_{12}} \\ \color{blue}{a_{21}} & \color{blue}{a_{22}} \end{vmatrix} \neq 0 \)</p>
+<p>Para <strong>orlarlo</strong> y ver si el rango puede ser 3, le añadimos la tercera fila y la tercera columna, creando una "orla" o marco (en rojo):</p>
+<p style="text-align: center;">\( M_3 = \begin{vmatrix} \color{blue}{a_{11}} & \color{blue}{a_{12}} & \color{red}{a_{13}} \\ \color{blue}{a_{21}} & \color{blue}{a_{22}} & \color{red}{a_{23}} \\ \color{red}{a_{31}} & \color{red}{a_{32}} & \color{red}{a_{33}} \end{vmatrix} \)</p>
+<p>Si este \( M_3 \) diera cero, todavía tendríamos la oportunidad de orlar el \( M_2 \) original usando la <em>cuarta</em> columna en lugar de la tercera.</p>
+</div>
+</div>
+</div>
+</div>
+</article><article id="block-mv9jua0o-q9ve67sll" class="box">
+<header class="box-head">
+<div class="box-icon exe-icon">
+<img src="../theme/icons/icon_udl_eng_aprenderaprender.png" alt="" style="display:block;object-fit:contain;">
+</div>
+<h1 class="box-title">Método de orlar</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="idevice-mv9jua0o-w7rmczvh6" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;idevice-mv9jua0o-w7rmczvh6&quot;}">
+<div class="exe-text-template">
+    <p>Vamos a calcular paso a paso el rango de la siguiente matriz \( A \) de dimensiones \( 3 \times 4 \) utilizando el método de orlar:</p>
+<p style="text-align: center; font-size: 1.2em;">\( A = \begin{pmatrix} 1 & 2 & 0 & 5 \\ 2 & 4 & 1 & 3 \\ 1 & 2 & 1 & -2 \end{pmatrix} \)</p>
+<!-- Caja de Control de Pasos Interactivos (Aprovecha el 100% del ancho) -->
+<div style="background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 15px; margin-top: 20px;">
+<div style="margin-bottom: 15px; display: flex; gap: 8px; flex-wrap: wrap;"><button onclick="mostrarPaso(1)" id="btnOrla1" style="background-color: #27ae60; color: #ffffff; border: 1px solid #27ae60; padding: 8px 12px; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.2s;">Paso 1: Menor Inicial</button> <button onclick="mostrarPaso(2)" id="btnOrla2" style="background-color: #ffffff; color: #27ae60; border: 1px solid #27ae60; padding: 8px 12px; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.2s;">Paso 2: Primera Orla</button> <button onclick="mostrarPaso(3)" id="btnOrla3" style="background-color: #ffffff; color: #27ae60; border: 1px solid #27ae60; padding: 8px 12px; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.2s;">Paso 3: Segunda Orla</button> <button onclick="mostrarPaso(4)" id="btnOrla4" style="background-color: #ffffff; color: #27ae60; border: 1px solid #27ae60; padding: 8px 12px; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.2s;">Conclusión</button></div>
+<!-- Contenido Dinámico de los Pasos -->
+<div id="pasoOrla1" style="display: block;">
+<h4 style="color: #27ae60; margin-top: 0;">1. Encontrar un menor base de orden 2 no nulo</h4>
+<p>Intentamos con las dos primeras filas y columnas. El menor es:</p>
+<p style="text-align: center;">\( \begin{vmatrix} 1 & 2 \\ 2 & 4 \end{vmatrix} = 4 - 4 = 0 \)</p>
+<p>Como dio cero, no nos sirve de base. Buscamos otro combinando la <strong>columna 1</strong> y la <strong>columna 3</strong>:</p>
+<p style="text-align: center;">\( M_2 = \begin{vmatrix} \color{blue}{1} & \color{blue}{0} \\ \color{blue}{2} & \color{blue}{1} \end{vmatrix} = 1 - 0 = 1 \neq 0 \)</p>
+<p>¡Perfecto! Ya sabemos con certeza que el <strong>rango es al menos 2</strong>. Las filas 1 y 2, y las columnas 1 y 3 quedan fijadas como nuestra base azul.</p>
+</div>
+<div id="pasoOrla2" style="display: none;">
+<h4 style="color: #27ae60; margin-top: 0;">2. Orlar por primera vez (añadimos Fila 3 y Columna 2)</h4>
+<p>Extendemos el menor base agregando la fila libre (Fila 3) y la Columna 2 (marcada en rojo):</p>
+<p style="text-align: center;">\( M_3 = \begin{vmatrix} \color{blue}{1} & \color{red}{2} & \color{blue}{0} \\ \color{blue}{2} & \color{red}{4} & \color{blue}{1} \\ \color{red}{1} & \color{red}{2} & \color{red}{1} \end{vmatrix} \)</p>
+<p>Calculamos su determinante (por Sarrus o adjuntos):</p>
+<p style="text-align: center;">\( \det(M_3) = (4 + 2 + 0) - (0 + 2 + 4) = 6 - 6 = 0 \)</p>
+<p>Como el determinante es <strong>cero</strong>, esta combinación no demuestra que el rango sea 3. Pero <em>¡atención!</em>, todavía queda otra columna disponible para probar antes de rendirnos.</p>
+</div>
+<div id="pasoOrla3" style="display: none;">
+<h4 style="color: #27ae60; margin-top: 0;">3. Orlar por segunda vez (cambiamos a la Columna 4)</h4>
+<p>Mantenemos nuestra base azul intacta, mantenemos la Fila 3, pero ahora orlamos usando la <strong>Columna 4</strong>. Para evitar confusiones, llamaremos a este nuevo intento alternativo \( M_{3b} \):</p>
+<p style="text-align: center;">\( M_{3b} = \begin{vmatrix} \color{blue}{1} & \color{blue}{0} & \color{red}{5} \\ \color{blue}{2} & \color{blue}{1} & \color{red}{3} \\ \color{red}{1} & \color{red}{1} & \color{red}{-2} \end{vmatrix} \)</p>
+<p>Calculamos este nuevo determinante:</p>
+<p style="text-align: center;">\( \det(M_{3b}) = (-2 + 0 + 10) - (5 + 3 + 0) = 8 - 8 = 0 \)</p>
+<p>Este determinante también ha dado <strong>cero</strong>.</p>
+</div>
+<div id="pasoOrla4" style="display: none;">
+<h4 style="color: #27ae60; margin-top: 0;">🏁 Decisión Final</h4>
+<p>Hemos orlado nuestro menor no nulo de orden 2 con <strong>todas</strong> las combinaciones de filas y columnas restantes de la matriz, y en todos los casos el resultado ha sido cero.</p>
+<p>Gracias a las reglas del método de orlar, no hace falta calcular más submatrices. Podemos concluir de forma matemática y rotunda que:</p>
+<div style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 4px; font-size: 1.1em; text-align: center; font-weight: bold; margin-top: 10px; border: 1px solid #c3e6cb;">El Rango de la matriz \( A \) es exactamente igual a 2.</div>
+</div>
+</div>
+<!-- Script de control y re-renderizado sin conflictos -->
+<p>
+<script>
+function mostrarPaso(num) {
+    for (let i = 1; i <= 4; i++) {
+        var boton = document.getElementById('btnOrla' + i);
+        var bloque = document.getElementById('pasoOrla' + i);
+        
+        if (i === num) {
+            bloque.style.display = 'block';
+            boton.style.setProperty('background-color', '#27ae60', 'important');
+            boton.style.setProperty('color', '#ffffff', 'important');
+        } else {
+            bloque.style.display = 'none';
+            boton.style.setProperty('background-color', '#ffffff', 'important');
+            boton.style.setProperty('color', '#27ae60', 'important');
+        }
+    }
+
+    if (typeof MathJax !== 'undefined') {
+        if (MathJax.Hub && typeof MathJax.Hub.Queue === 'function') {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('pasoOrla' + num)]);
+        } else if (typeof MathJax.typeset === 'function') {
+            MathJax.typeset([document.getElementById('pasoOrla' + num)]);
+        }
+    }
+}
+</script>
+</p>
+</div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/11-definicion-de-rango-de-una-matriz.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/13-calculo-del-rango-de-una-matriz-por-el-metodo-d.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter" class="siteFooter-empty"><div id="siteFooterContent"></div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>
